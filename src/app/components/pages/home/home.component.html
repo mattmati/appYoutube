@@ -1,2 +1,27 @@
-<h1 class="titulo">Youtube Videos</h1>
+<h2 class="titulo">Youtube Videos</h2>
 <hr>
+
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4 animated fadeIn" *ngFor="let video of videos">
+        <div class="card h-100">
+            <img [src]="video.thumbnails.high.url" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title"> {{ video.title }} </h5>
+                <p class="card-text">
+                    <strong>Publicado: </strong> {{ video.publishedAt | date }}
+                </p>
+                <button class="btn btn-outline-primary" (click)="mostrarVideo(video)">
+                    Ver video
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row ml-5 mb-5 text-center">
+    <div class="col">
+        <button class="btn btn-primary btn-lg" (click)="cargarVideos()">
+            Siguiente página
+        </button>
+    </div>
+</div>
